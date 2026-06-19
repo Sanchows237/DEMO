@@ -1,0 +1,67 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="9MmmTVtR-AVxKiwE-hVs">
+    <mxGraphModel dx="1414" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="roles" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;roles&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;name" vertex="1">
+          <mxGeometry height="60" width="180" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="order_statuses" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;order_statuses&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;name" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="categories" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;categories&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;name" vertex="1">
+          <mxGeometry height="60" width="180" x="520" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="suppliers" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;suppliers&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;name" vertex="1">
+          <mxGeometry height="60" width="180" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="manufacturers" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;manufacturers&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;name" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="pickup_points" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;pickup_points&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;postal_index&lt;br&gt;city&lt;br&gt;street&lt;br&gt;house" vertex="1">
+          <mxGeometry height="100" width="180" x="520" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="users" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;users&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;full_name&lt;br&gt;login&lt;br&gt;password&lt;br&gt;role_id (FK → roles.id)" vertex="1">
+          <mxGeometry height="100" width="220" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="products" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;products&lt;/b&gt;&lt;br&gt;article (PK)&lt;br&gt;name&lt;br&gt;unit&lt;br&gt;price&lt;br&gt;supplier_id (FK → suppliers.id)&lt;br&gt;manufacturer_id (FK → manufacturers.id)&lt;br&gt;category_id (FK → categories.id)&lt;br&gt;discount&lt;br&gt;stock_quantity&lt;br&gt;description&lt;br&gt;photo" vertex="1">
+          <mxGeometry height="220" width="220" x="320" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="orders" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;orders&lt;/b&gt;&lt;br&gt;order_number (PK)&lt;br&gt;order_date&lt;br&gt;delivery_date&lt;br&gt;pickup_point_id (FK → pickup_points.id)&lt;br&gt;user_id (FK → users.id)&lt;br&gt;pickup_code&lt;br&gt;status_id (FK → order_statuses.id)" vertex="1">
+          <mxGeometry height="150" width="220" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="order_items" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=12;fontFamily=Helvetica;rounded=0;shadow=0;" value="&lt;b&gt;order_items&lt;/b&gt;&lt;br&gt;id (PK)&lt;br&gt;order_number (FK → orders.order_number)&lt;br&gt;product_article (FK → products.article)&lt;br&gt;quantity" vertex="1">
+          <mxGeometry height="90" width="220" x="320" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_users_roles" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;startArrow=none;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;entryPerimeter=0;" target="roles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_products_suppliers" edge="1" parent="1" source="products" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=0;exitY=0.2;entryX=1;entryY=0.5;" target="suppliers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_products_manufacturers" edge="1" parent="1" source="products" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=0;exitY=0.4;entryX=1;entryY=0.5;" target="manufacturers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_products_categories" edge="1" parent="1" source="products" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=1;exitY=0.6;entryX=0;entryY=0.5;" target="categories">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_orders_pickup" edge="1" parent="1" source="orders" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=1;exitY=0.2;entryX=0;entryY=0.5;" target="pickup_points">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_orders_users" edge="1" parent="1" source="orders" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;entryPerimeter=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_orders_status" edge="1" parent="1" source="orders" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=1;exitY=0.8;entryX=0;entryY=0.5;" target="order_statuses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_items_orders" edge="1" parent="1" source="order_items" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=0;exitY=0.2;entryX=1;entryY=0.5;" target="orders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_items_products" edge="1" parent="1" source="order_items" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.8;" target="products">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
